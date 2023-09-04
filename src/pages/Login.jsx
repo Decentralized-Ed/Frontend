@@ -58,22 +58,8 @@ const Login = () => {
   }, []);
 
   return (
-    <div className="landing-page-container flex justify-center p-2 xl:p-20 bg-new-primary-bg-color flex-col items-center overflow-x-hidden gap-3.5rem h-screen pt-16">
-      <div className="landing-container flex items-center h-50vh px-5">
-        <div className="landing-page-text-container flex flex-col items-start gap-3 w-2/3">
-          <div className="landing-header-text mb-2 font-semibold text-3xl text-intro-text-color">
-            AcademiaGuard: <br /> Empowering the Future of Education
-          </div>
-          <div className="landing-text mb-4 font-normal text-base text-body-text-color">
-            Welcome to AcademiaGuard, where the future of education meets
-            blockchain innovation. Our platform is your digital fortress,
-            securing academic records with the power of blockchain technology.
-            Say goodbye to worries of tampering or lost credentials. Join us on
-            a journey to redefine trust in education. Your success, digitally
-            protected.
-          </div>
-          <MetaMask />
-        </div>
+    <div className="landing-page-container flex align-middle flex-col justify-center p-2 xl:p-20 bg-new-primary-bg-color items-center overflow-x-hidden gap-3.5rem h-screen pt-16">
+      <div className="landing-container flex-row-reverse  md:flex items-center h-50vh px-5">
         <div className="landing-container">
           {isMobileView && !isFoldView && (
             <TeamVector width={328} height={262} />
@@ -82,6 +68,20 @@ const Login = () => {
           {!isMobileView && !isFoldView && (
             <TeamVector width={488} height={358} />
           )}
+        </div>
+        <div className="landing-page-text-container flex flex-col items-start gap-3 md:w-2/3">
+          <div className="landing-header-text mb-2 font-semibold text-3xl text-intro-text-color">
+            AcademiaGuard: <br /> Empowering the Future of Education
+          </div>
+          <div className="landing-text mb-4 text-sm font-normal md:text-base text-body-text-color">
+            Welcome to AcademiaGuard, where the future of education meets
+            blockchain innovation. Our platform is your digital fortress,
+            securing academic records with the power of blockchain technology.
+            Say goodbye to worries of tampering or lost credentials. Join us on
+            a journey to redefine trust in education. Your success, digitally
+            protected.
+          </div>
+          <MetaMask />
         </div>
       </div>
     </div>
