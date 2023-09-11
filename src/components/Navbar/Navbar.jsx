@@ -1,10 +1,18 @@
+import { useNavigate } from "react-router-dom";
+
 const Navbar = () => {
+  const navigate = useNavigate();
   return (
     <div>
       <nav className=" fixed w-full z-20 top-0 left-0 border-b border-pink-200">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-3">
           <a href="" className="flex items-center">
-            <span className="self-center text-2xl font-semibold whitespace-nowrap">
+            <span
+              className="self-center text-2xl font-semibold whitespace-nowrap"
+              onClick={() => {
+                navigate("/");
+              }}
+            >
               AcademiaGuard
             </span>
           </a>
@@ -14,11 +22,7 @@ const Navbar = () => {
           >
             <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border rounded-lg  md:flex-row md:space-x-8 md:mt-0 md:border-0">
               <li>
-                <a
-                  href="#"
-                  className="block"
-                  aria-current="page"
-                >
+                <a href="#" className="block" aria-current="page">
                   Home
                 </a>
               </li>

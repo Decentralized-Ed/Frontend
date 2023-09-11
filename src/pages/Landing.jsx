@@ -1,10 +1,8 @@
-// import React, { useState, useEffect } from "react";
 // import Web3 from "web3";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import TeamVector from "../assets/teamvector";
-import MetaMask from "../components/Button/MetaMask";
 import NavBar from "../components/Navbar/Navbar";
-import LoginCard from "../components/LoginCard/loginCard";
 const Landing = () => {
   // const [isConnected, setIsConnected] = useState(false);
   // const [email, setEmail] = useState("");
@@ -43,6 +41,7 @@ const Landing = () => {
 
   const [isMobileView, setIsMobileView] = useState(window.innerWidth < 900);
   const [isFoldView, setIsFoldView] = useState(window.innerWidth < 350);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleResize = () => {
@@ -85,7 +84,15 @@ const Landing = () => {
               on a journey to redefine trust in education. Your success,
               digitally protected.
             </div>
-            <MetaMask />
+            <button
+              type="button"
+              className="text-white bg-pink-600 font-normal rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 text-center inline-flex items-center mr-2 mb-2"
+              onClick={() => {
+                navigate("/login");
+              }}
+            >
+              Sign In
+            </button>
           </div>
         </div>
       </div>
