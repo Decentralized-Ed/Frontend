@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import TeamVector from "../assets/teamvector";
 import MetaMask from "../components/Button/MetaMask";
 import NavBar from "../components/Navbar/Navbar";
+import LoginCard from "../components/LoginCard/loginCard";
 const Landing = () => {
   // const [isConnected, setIsConnected] = useState(false);
   // const [email, setEmail] = useState("");
