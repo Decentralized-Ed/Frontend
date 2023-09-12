@@ -1,14 +1,14 @@
 import React from "react";
-import LoginCard from "../components/LoginCard/loginCard";
+import SignUpCard from "../components/SignupCard/signupCard";
 import NavBar from "../components/Navbar/Navbar";
 
-const Login = () => {
+const Signup = () => {
   return (
     <>
       <NavBar />
-      <LoginCard />
+      <SignUpCard />
     </>
   );
 };
 
-export default Login;
+export default Signup;
