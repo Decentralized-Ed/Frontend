@@ -7,13 +7,15 @@ const useAuth = () => {
 
   const login = async (email, password) => {
     try {
-      //   const response = await axios.post("api/login", {
-      //     email,
-      //     password,
-      //   });
-      //   const userData = response.data;
-      //   setUser(userData);
-      setUser(email);
+      const response = await axios.post(
+        "http://localhost:5000/api/auth/login",
+        {
+          email,
+          password,
+        }
+      );
+      const userData = response.data;
+      setUser(userData);
       setError(null);
     } catch (err) {
       setError("Some error while logging in");
@@ -29,7 +31,6 @@ const useAuth = () => {
           password,
         }
       );
-      console.log(response.data);
       const userData = response.data;
       setUser(userData);
       setError(null);
