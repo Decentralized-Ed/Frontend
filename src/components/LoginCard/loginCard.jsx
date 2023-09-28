@@ -1,7 +1,22 @@
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+
+import useAuth from "../../hooks/auth";
 
 const LoginCard = () => {
   const navigate = useNavigate();
+  const { user, error, login } = useAuth();
+
+  console.log(user);
+
+  const loginWithEmail = (e) => {
+    e.preventDefault();
+    // console.log(e.target.email.value, e.target.password.value);
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    login(email, password);
+  };
+
   return (
     <div className="h-screen flex justify-center items-center">
       <section className="w-[50%] p-10">
@@ -10,7 +25,11 @@ const LoginCard = () => {
             <h1 className="text-xl font-bold leading-tight tracking-tight md:text-2xl text-white">
               Welcome Back!!
             </h1>
-            <form className="space-y-4 md:space-y-6" action="#">
+            <form
+              className="space-y-4 md:space-y-6"
+              action="#"
+              onSubmit={loginWithEmail}
+            >
               <div>
                 <label
                   htmlFor="email"
