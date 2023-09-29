@@ -3,12 +3,12 @@ import Landing from "./pages/Landing";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
-import Certificates from "./components/certificates/certificate";
+//import Certificates from "./components/certificates/certificate";
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Certificates />} />
+      <Route path="/" element={<Landing />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/dashboard" element={<Dashboard />} />
