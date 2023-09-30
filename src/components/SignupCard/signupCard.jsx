@@ -1,19 +1,27 @@
 import { useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/auth";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  useLoginMutation,
+  useSignupMutation,
+} from "../../slices/usersApiSlice";
+import { setCredentials } from "../../slices/authSlice";
+import { toast } from "react-toastify";
 
 const SignUpCard = () => {
   const navigate = useNavigate();
-  const { user, error, signUp } = useAuth();
 
-  console.log(user);
-
-  const signUpWithEmail = (e) => {
+  const [signup, { isLoading }] = useSignupMutation();
+  const signUpWithEmail = async (e) => {
     e.preventDefault();
-    // console.log(e.target.email.value, e.target.password.value);
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log("Hey I am in the sugnUp card.");
-    signUp(email, password);
+    try {
+      const res = await signup({ email, password }).unwrap();
+      console.log(res);
+    } catch (err) {
+      toast.error(err?.data?.message || err.error);
+    }
   };
 
   return (
