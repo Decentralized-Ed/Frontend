@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/auth";
 import VerifyModal from "./VerifyModal";
-import { useToasts } from "react-toast-notifications";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -15,7 +14,6 @@ import { toast } from "react-toastify";
 const SignUpCard = () => {
   const { user, error, signUp } = useAuth();
   const [showOTPModal, setShowOTPModal] = useState(false);
-  const { addToast } = useToasts();
   const navigate = useNavigate();
   const { userInfo } = useSelector((state) => state.auth);
 
@@ -34,7 +32,7 @@ const SignUpCard = () => {
     const confirmPassword = e.target.confirmPassword.value;
     if (password !== confirmPassword) {
       // Check if passwords match
-      addToast("Passwords do not match!", { appearance: "error" }); // Show an error toast
+      toast.error("Passwords do not match!"); // Show an error toast
       return; // Prevent form submission
     }
     signUp(email, password);
