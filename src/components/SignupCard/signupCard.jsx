@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/auth";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   useLoginMutation,
@@ -10,8 +11,16 @@ import { toast } from "react-toastify";
 
 const SignUpCard = () => {
   const navigate = useNavigate();
+  const { userInfo } = useSelector((state) => state.auth);
+
+  useEffect(() => {
+    if (userInfo) {
+      navigate("/dashboard");
+    }
+  }, [navigate, userInfo]);
 
   const [signup, { isLoading }] = useSignupMutation();
+
   const signUpWithEmail = async (e) => {
     e.preventDefault();
     const email = e.target.email.value;

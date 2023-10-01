@@ -1,7 +1,30 @@
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../slices/authSlice";
+import { toast } from "react-toastify";
 
 const DashBoardNavbar = () => {
   const navigate = useNavigate();
+  const { userInfo } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+
+  const logOutHandler = async () => {
+    try {
+      //write a api call to remove the token (Needed to be implemented)
+      dispatch(logout());
+      navigate("/login");
+    } catch (err) {
+      toast.error(err?.data?.message || err.error);
+    }
+  };
+
+  useEffect(() => {
+    if (!userInfo) {
+      navigate("/login");
+    }
+  }, [navigate, userInfo]);
+
   return (
     <div>
       <nav className=" fixed w-full z-20 top-0 left-0 border-b border-pink-200">
@@ -32,6 +55,15 @@ const DashBoardNavbar = () => {
                   className="block py-2 pl-3 pr-4  rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0"
                 >
                   Settings
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  className="block py-2 pl-3 pr-4  rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0"
+                  onClick={logOutHandler}
+                >
+                  Logout
                 </a>
               </li>
             </ul>
