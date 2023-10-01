@@ -3,7 +3,9 @@ import jsPDF from "jspdf";
 import mergeImages from "merge-images";
 import { useEffect } from "react";
 import idCard from "../../../src/idCard.jpeg";
+import feereciept from "../../feereciept.png";
 import degreeCertificate from "../../../src/degreeeCertificate.jpeg";
+import { useNavigate } from "react-router";
 const CertificatesHolder = () => {
   //creating the pdf of the certificate using the html element.
 
@@ -27,6 +29,8 @@ const CertificatesHolder = () => {
     });
   };
 
+  const navigate = useNavigate();
+
   return (
     <div className="mt-20">
       <h1 className="mt-20 mb-2 text-center capitalize text-2xl">
@@ -46,7 +50,9 @@ const CertificatesHolder = () => {
             <div className="flex items-center justify-center">
               <button
                 className="text-white mb-4 font-semibold py-2 px-4 rounded border border-white"
-                onClick={createPdf}
+                onClick={() => {
+                  navigate("/document?type=IDcard");
+                }}
               >
                 Give Document
               </button>
@@ -63,7 +69,12 @@ const CertificatesHolder = () => {
             <hr className="w-1/2 mx-auto"></hr>
             <img className=" p-4" src={degreeCertificate}></img>
             <div className="flex items-center justify-center">
-              <button className="text-white mb-4 font-semibold py-2 px-4 rounded border border-white">
+              <button
+                className="text-white mb-4 font-semibold py-2 px-4 rounded border border-white"
+                onClick={() => {
+                  navigate("/document?type=Certificate");
+                }}
+              >
                 Give Document
               </button>
             </div>
@@ -71,18 +82,20 @@ const CertificatesHolder = () => {
         </div>
 
         {/* Third Document */}
-        <div className="py-10">
+        <div className="py-10 ">
           <div className="rounded overflow-hidden shadow-lg border border-white justify-items-center">
             <h1 className="w-full text-center mt-4 mb-1 text-2xl">
-              This is Document1
+              Fee Reciept
             </h1>
             <hr className="w-1/3 mx-auto"></hr>
-            <img
-              className=" p-4"
-              src="https://marketplace.canva.com/EAFNlUJs5g4/2/0/1600w/canva-white-simple-certificate-of-appreciation-Fcz7KkZ5YaU.jpg"
-            ></img>
+            <img className=" p-4" src={feereciept}></img>
             <div className="flex items-center justify-center">
-              <button className="text-white mb-4 font-semibold py-2 px-4 rounded border border-white">
+              <button
+                className="text-white mb-4 font-semibold py-2 px-4 rounded border border-white"
+                onClick={() => {
+                  navigate("/document?type=feereciept");
+                }}
+              >
                 Give Document
               </button>
             </div>

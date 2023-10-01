@@ -1,6 +1,6 @@
 function IDcard() {
   return (
-    <div className="w-full h-full bg-white rounded text-black">
+    <div className="w-full h-full bg-white rounded text-black mb-6">
       <div className="h-[80%] flex justify-between items-center">
         <div className="w-[40%] h-[100%] flex justify-center items-center">
           <div className="border-solid border-[#ff1689] border-[3px] w-[75%] h-[80%]">
