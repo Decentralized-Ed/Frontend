@@ -1,17 +1,13 @@
+import React from "react";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
-
 import useAuth from "../../hooks/auth";
 
 const LoginCard = () => {
   const navigate = useNavigate();
   const { user, error, login } = useAuth();
 
-  console.log(user);
-
   const loginWithEmail = (e) => {
     e.preventDefault();
-    // console.log(e.target.email.value, e.target.password.value);
     const email = e.target.email.value;
     const password = e.target.password.value;
     login(email, password);
@@ -19,10 +15,10 @@ const LoginCard = () => {
 
   return (
     <div className="h-screen flex justify-center items-center">
-      <section className="w-[50%] p-10">
-        <div className="rounded-lg shadow dark:border md:mt-0 xl:p-0 bg-gray-800 border-gray-700">
-          <div className="p-6 space-y-4 md:space-y-6 sm:p-4">
-            <h1 className="text-xl font-bold leading-tight tracking-tight md:text-2xl text-white">
+      <section className="w-full sm:w-[80%] md:w-[60%] lg:w-[50%] xl:w-[40%] p-4 md:p-10">
+        <div className="rounded-lg shadow bg-gray-800 border-gray-700 text-white">
+          <div className="p-6 space-y-4 md:space-y-6">
+            <h1 className="text-xl md:text-2xl font-bold leading-tight">
               Welcome Back!!
             </h1>
             <form
@@ -33,25 +29,25 @@ const LoginCard = () => {
               <div>
                 <label
                   htmlFor="email"
-                  className="block mb-2 text-sm font-medium text-white"
+                  className="block mb-2 text-sm font-medium"
                 >
                   Enter email
                 </label>
-                <div className="flex-col md:flex gap-1 md:gap-2">
+                <div className="flex-col gap-2">
                   <input
                     type="email"
                     name="email"
                     id="email"
-                    className="bg-gray-50 w-full md:w-auto border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    className="w-full bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="example@email.com"
-                    required="true"
+                    required
                   />
                 </div>
               </div>
               <div>
                 <label
-                  htmlFor="OTP"
-                  className="block mb-2 text-sm font-medium text-white"
+                  htmlFor="password"
+                  className="block mb-2 text-sm font-medium"
                 >
                   Enter Password
                 </label>
@@ -59,36 +55,20 @@ const LoginCard = () => {
                   type="password"
                   name="password"
                   id="password"
-                  placeholder="password"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  required="true"
+                  placeholder="Password"
+                  className="w-full bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  required
                 />
               </div>
               <div className="flex items-center justify-between">
-                {/* <div className="flex items-start">
-                  <div className="flex items-center h-5">
-                    <input
-                      id="remember"
-                      aria-describedby="remember"
-                      type="checkbox"
-                      className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
-                      required=""
-                    />
-                  </div>
-                  <div className="ml-3 text-sm">
-                    <label htmlFor="remember" className="text-white">
-                      Remember me
-                    </label>
-                  </div>
-                </div> */}
                 <a
                   href="#"
-                  className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500"
+                  className="text-sm font-medium text-primary-600 hover:underline"
                   onClick={() => {
                     navigate("/signup");
                   }}
                 >
-                  Don't have an account?
+                  Don&apos;t have an account?
                   <br /> Sign Up
                 </a>
               </div>
