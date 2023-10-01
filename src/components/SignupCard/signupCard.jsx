@@ -1,28 +1,32 @@
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/auth";
+import VerifyModal from "./VerifyModal";
 
 const SignUpCard = () => {
   const navigate = useNavigate();
   const { user, error, signUp } = useAuth();
-
-  console.log(user);
+  const [showOTPModal, setShowOTPModal] = useState(false);
 
   const signUpWithEmail = (e) => {
     e.preventDefault();
-    // console.log(e.target.email.value, e.target.password.value);
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log("Hey I am in the sugnUp card.");
+    setShowOTPModal(true);
     signUp(email, password);
+  };
+
+  const closeOTPModal = () => {
+    setShowOTPModal(false);
   };
 
   return (
     <div className="h-screen flex justify-center items-center">
-      <section className="w-[50%] p-10">
-        <div className="rounded-lg shadow dark:border md:mt-0 xl:p-0 bg-gray-800 border-gray-700">
-          <div className="p-6 space-y-4 md:space-y-6 sm:p-4">
-            <h1 className="text-xl font-bold leading-tight tracking-tight md:text-2xl text-white">
-              Welcome Back!!
+      <section className="w-full sm:w-[80%] md:w-[60%] lg:w-[50%] xl:w-[40%] p-4 md:p-10">
+        <div className="rounded-lg shadow bg-gray-800 border-gray-700 text-white">
+          <div className="p-6 space-y-4 md:space-y-6">
+            <h1 className="text-xl md:text-2xl font-bold leading-tight">
+              Hey There! Welcome to AcademiaGuard
             </h1>
             <form
               className="space-y-4 md:space-y-6"
@@ -32,25 +36,25 @@ const SignUpCard = () => {
               <div>
                 <label
                   htmlFor="email"
-                  className="block mb-2 text-sm font-medium text-white"
+                  className="block mb-2 text-sm font-medium"
                 >
                   Enter email
                 </label>
-                <div className="flex-col md:flex gap-1 md:gap-2">
+                <div className="flex-col gap-2">
                   <input
                     type="email"
                     name="email"
                     id="email"
-                    className="bg-gray-50 w-full md:w-auto border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    className="w-full bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="example@email.com"
-                    required="true"
+                    required
                   />
                 </div>
               </div>
               <div>
                 <label
-                  htmlFor="OTP"
-                  className="block mb-2 text-sm font-medium text-white"
+                  htmlFor="password"
+                  className="block mb-2 text-sm font-medium"
                 >
                   Enter Password
                 </label>
@@ -58,37 +62,38 @@ const SignUpCard = () => {
                   type="password"
                   name="password"
                   id="password"
-                  placeholder="password"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  required="true"
+                  placeholder="Password"
+                  className="w-full bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  required
                 />
               </div>
               <div>
                 <label
-                  htmlFor="OTP"
-                  className="block mb-2 text-sm font-medium text-white"
+                  htmlFor="confirmPassword"
+                  className="block mb-2 text-sm font-medium"
                 >
                   Confirm Password
                 </label>
                 <input
                   type="password"
-                  name="password"
-                  id="password"
+                  name="confirmPassword"
+                  id="confirmPassword"
                   placeholder="Confirm Password"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  required="true"
+                  className="w-full bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  required
                 />
               </div>
               <div className="flex items-center justify-between">
                 <a
                   href="#"
-                  className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500"
+                  className="text-sm font-medium text-primary-600 hover:underline"
                   onClick={() => {
                     navigate("/login");
                   }}
                 >
                   Already have an account?
-                  <br /> Sign In
+                  <br />
+                  Sign In
                 </a>
               </div>
               <button
@@ -101,6 +106,17 @@ const SignUpCard = () => {
           </div>
         </div>
       </section>
+      {/* OTP modal */}
+      {showOTPModal && (
+        <VerifyModal
+          onClose={closeOTPModal}
+          onOTPSubmit={() => {
+            // Handle OTP submission here, e.g., send OTP to server
+            // and close the modal when done
+            closeOTPModal();
+          }}
+        />
+      )}
     </div>
   );
 };
