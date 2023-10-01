@@ -10,8 +10,28 @@ const SignUpCard = () => {
   const { user, error, signUp } = useAuth();
   const [showOTPModal, setShowOTPModal] = useState(false);
    const { addToast } = useToasts();
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  useLoginMutation,
+  useSignupMutation,
+} from "../../slices/usersApiSlice";
+import { setCredentials } from "../../slices/authSlice";
+import { toast } from "react-toastify";
 
-  const signUpWithEmail = (e) => {
+const SignUpCard = () => {
+  const navigate = useNavigate();
+  const { userInfo } = useSelector((state) => state.auth);
+
+  useEffect(() => {
+    if (userInfo) {
+      navigate("/dashboard");
+    }
+  }, [navigate, userInfo]);
+
+  const [signup, { isLoading }] = useSignupMutation();
+
+  const signUpWithEmail = async (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
@@ -21,9 +41,14 @@ const SignUpCard = () => {
    addToast("Passwords do not match!", { appearance: "error" }); // Show an error toast
    return; // Prevent form submission
  }
-
     setShowOTPModal(true);
     signUp(email, password);
+    try {
+      const res = await signup({ email, password }).unwrap();
+      console.log(res);
+    } catch (err) {
+      toast.error(err?.data?.message || err.error);
+    }
   };
   
   const closeOTPModal = () => {
