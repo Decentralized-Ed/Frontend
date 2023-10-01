@@ -2,18 +2,37 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/auth";
 import VerifyModal from "./VerifyModal";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  useLoginMutation,
+  useSignupMutation,
+} from "../../slices/usersApiSlice";
+import { setCredentials } from "../../slices/authSlice";
+import { toast } from "react-toastify";
 
 const SignUpCard = () => {
   const navigate = useNavigate();
-  const { user, error, signUp } = useAuth();
-  const [showOTPModal, setShowOTPModal] = useState(false);
+  const { userInfo } = useSelector((state) => state.auth);
 
-  const signUpWithEmail = (e) => {
+  useEffect(() => {
+    if (userInfo) {
+      navigate("/dashboard");
+    }
+  }, [navigate, userInfo]);
+
+  const [signup, { isLoading }] = useSignupMutation();
+
+  const signUpWithEmail = async (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    setShowOTPModal(true);
-    signUp(email, password);
+    try {
+      const res = await signup({ email, password }).unwrap();
+      console.log(res);
+    } catch (err) {
+      toast.error(err?.data?.message || err.error);
+    }
   };
 
   const closeOTPModal = () => {
