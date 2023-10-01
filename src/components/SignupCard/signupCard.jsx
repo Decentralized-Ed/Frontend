@@ -37,11 +37,11 @@ const SignUpCard = () => {
       addToast("Passwords do not match!", { appearance: "error" }); // Show an error toast
       return; // Prevent form submission
     }
-    setShowOTPModal(true);
     signUp(email, password);
     try {
       const res = await signup({ email, password }).unwrap();
       console.log(res);
+      setShowOTPModal(true);
     } catch (err) {
       toast.error(err?.data?.message || err.error);
     }
