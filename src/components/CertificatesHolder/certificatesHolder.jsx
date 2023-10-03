@@ -1,20 +1,10 @@
-import DegreeCertificate from "../Certificates/degreeCertificate";
+import React from "react";
 import jsPDF from "jspdf";
-import mergeImages from "merge-images";
-import { useEffect } from "react";
-import document from "../../../src/document.jpg";
-import feereciept from "../../feereciept.png";
-import degreeCertificate from "../../../src/degreeeCertificate.jpeg";
 import { useNavigate } from "react-router";
+import document from "../../../src/document.jpg"; // Placeholder image, replace with actual images
+import degreeCertificate from "../../../src/degreeeCertificate.jpeg"; // Placeholder image, replace with actual images
+
 const CertificatesHolder = () => {
-  //creating the pdf of the certificate using the html element.
-
-  // useEffect(() => {
-  //   const element = document.querySelector("#img1");
-  //   mergeImages([imge2, imge1]).then((b64) => (element.src = b64));
-  //   console.log(element);
-  // }, []);
-
   const createPdf = () => {
     const doc = new jsPDF({
       format: "a4",
@@ -38,7 +28,7 @@ const CertificatesHolder = () => {
       </h1>
       <hr className="w-1/5 mx-auto"></hr>
 
-      <div className="grid grid-cols-3 mt-20 mx-20 lg:gap-24 md:gap-5 justify-items-center">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-20 mx-4 md:mx-20 lg:mx-20 gap-4 md:gap-8 justify-items-center">
         {/* First Document */}
         <div className="py-10" id="Certificate">
           <div className="rounded overflow-hidden shadow-lg border border-white justify-items-center">
@@ -46,7 +36,7 @@ const CertificatesHolder = () => {
               ID Card
             </h1>
             <hr className="w-1/3 mx-auto"></hr>
-            <img className=" p-4 w-60 h-60" src={document}></img>
+            <img className="p-4 w-60 h-60" src={document} alt="ID Card"></img>
             <div className="flex items-center justify-center">
               <button
                 className="text-white mb-4 font-semibold py-2 px-4 rounded border border-white"
@@ -67,7 +57,11 @@ const CertificatesHolder = () => {
               Degree Certificate
             </h1>
             <hr className="w-1/2 mx-auto"></hr>
-            <img className=" p-4 w-60 h-60" src={document}></img>
+            <img
+              className="p-4 w-60 h-60"
+              src={degreeCertificate}
+              alt="Degree Certificate"
+            ></img>
             <div className="flex items-center justify-center">
               <button
                 className="text-white mb-4 font-semibold py-2 px-4 rounded border border-white"
@@ -85,15 +79,19 @@ const CertificatesHolder = () => {
         <div className="py-10 ">
           <div className="rounded overflow-hidden shadow-lg border border-white justify-items-center">
             <h1 className="w-full text-center mt-4 mb-1 text-2xl">
-              Fee Reciept
+              Fee Receipt
             </h1>
             <hr className="w-1/3 mx-auto"></hr>
-            <img className=" p-4 w-60 h-60" src={document}></img>
+            <img
+              className="p-4 w-60 h-60"
+              src={document}
+              alt="Fee Receipt"
+            ></img>
             <div className="flex items-center justify-center">
               <button
                 className="text-white mb-4 font-semibold py-2 px-4 rounded border border-white"
                 onClick={() => {
-                  navigate("/document?type=feereciept");
+                  navigate("/document?type=feereceipt");
                 }}
               >
                 Give Document
@@ -101,14 +99,19 @@ const CertificatesHolder = () => {
             </div>
           </div>
         </div>
-        {/* Forth Document */}
+
+        {/* Fourth Document */}
         <div className="py-10 ">
           <div className="rounded overflow-hidden shadow-lg border border-white justify-items-center">
             <h1 className="w-full text-center mt-4 mb-1 text-2xl">
               Grade Sheet
             </h1>
             <hr className="w-1/3 mx-auto"></hr>
-            <img className=" p-4 w-60 h-60" src={document}></img>
+            <img
+              className="p-4 w-60 h-60"
+              src={document}
+              alt="Grade Sheet"
+            ></img>
             <div className="flex items-center justify-center">
               <button
                 className="text-white mb-4 font-semibold py-2 px-4 rounded border border-white"
@@ -121,6 +124,7 @@ const CertificatesHolder = () => {
             </div>
           </div>
         </div>
+
         {/* Fifth Document */}
         <div className="py-10 ">
           <div className="rounded overflow-hidden shadow-lg border border-white justify-items-center">
@@ -128,7 +132,11 @@ const CertificatesHolder = () => {
               Transcript
             </h1>
             <hr className="w-1/3 mx-auto"></hr>
-            <img className=" p-4 w-60 h-60" src={document}></img>
+            <img
+              className="p-4 w-60 h-60"
+              src={document}
+              alt="Transcript"
+            ></img>
             <div className="flex items-center justify-center">
               <button
                 className="text-white mb-4 font-semibold py-2 px-4 rounded border border-white"
