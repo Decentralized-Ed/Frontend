@@ -27,7 +27,7 @@ const DashBoardNavbar = () => {
 
   return (
     <div>
-      <nav className=" fixed w-full z-20 top-0 left-0 border-b border-pink-200">
+      <nav className=" w-full z-20 top-0 left-0 border-b border-pink-200">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-3">
           <a href="" className="flex items-center">
             <span

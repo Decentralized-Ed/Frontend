@@ -2,7 +2,7 @@ import DegreeCertificate from "../Certificates/degreeCertificate";
 import jsPDF from "jspdf";
 import mergeImages from "merge-images";
 import { useEffect } from "react";
-import idCard from "../../../src/idCard.jpeg";
+import document from "../../../src/document.jpg";
 import feereciept from "../../feereciept.png";
 import degreeCertificate from "../../../src/degreeeCertificate.jpeg";
 import { useNavigate } from "react-router";
@@ -46,7 +46,7 @@ const CertificatesHolder = () => {
               ID Card
             </h1>
             <hr className="w-1/3 mx-auto"></hr>
-            <img className=" p-4" src={idCard}></img>
+            <img className=" p-4 w-60 h-60" src={document}></img>
             <div className="flex items-center justify-center">
               <button
                 className="text-white mb-4 font-semibold py-2 px-4 rounded border border-white"
@@ -67,7 +67,7 @@ const CertificatesHolder = () => {
               Degree Certificate
             </h1>
             <hr className="w-1/2 mx-auto"></hr>
-            <img className=" p-4" src={degreeCertificate}></img>
+            <img className=" p-4 w-60 h-60" src={document}></img>
             <div className="flex items-center justify-center">
               <button
                 className="text-white mb-4 font-semibold py-2 px-4 rounded border border-white"
@@ -88,12 +88,52 @@ const CertificatesHolder = () => {
               Fee Reciept
             </h1>
             <hr className="w-1/3 mx-auto"></hr>
-            <img className=" p-4" src={feereciept}></img>
+            <img className=" p-4 w-60 h-60" src={document}></img>
             <div className="flex items-center justify-center">
               <button
                 className="text-white mb-4 font-semibold py-2 px-4 rounded border border-white"
                 onClick={() => {
                   navigate("/document?type=feereciept");
+                }}
+              >
+                Give Document
+              </button>
+            </div>
+          </div>
+        </div>
+        {/* Forth Document */}
+        <div className="py-10 ">
+          <div className="rounded overflow-hidden shadow-lg border border-white justify-items-center">
+            <h1 className="w-full text-center mt-4 mb-1 text-2xl">
+              Grade Sheet
+            </h1>
+            <hr className="w-1/3 mx-auto"></hr>
+            <img className=" p-4 w-60 h-60" src={document}></img>
+            <div className="flex items-center justify-center">
+              <button
+                className="text-white mb-4 font-semibold py-2 px-4 rounded border border-white"
+                onClick={() => {
+                  navigate("/document?type=gradesheet");
+                }}
+              >
+                Give Document
+              </button>
+            </div>
+          </div>
+        </div>
+        {/* Fifth Document */}
+        <div className="py-10 ">
+          <div className="rounded overflow-hidden shadow-lg border border-white justify-items-center">
+            <h1 className="w-full text-center mt-4 mb-1 text-2xl">
+              Transcript
+            </h1>
+            <hr className="w-1/3 mx-auto"></hr>
+            <img className=" p-4 w-60 h-60" src={document}></img>
+            <div className="flex items-center justify-center">
+              <button
+                className="text-white mb-4 font-semibold py-2 px-4 rounded border border-white"
+                onClick={() => {
+                  navigate("/document?type=transcript");
                 }}
               >
                 Give Document
