@@ -73,8 +73,9 @@ const Landing = () => {
             )}
           </div>
           <div className="landing-page-text-container flex flex-col items-start gap-3 md:w-2/3">
-            <div className="landing-header-text mb-2 font-semibold text-3xl text-intro-text-color">
-              AcademiaGuard: <br /> Empowering the Future of Education
+            <div className="landing-header-text mb-2 font-semibold text-3xl  text-intro-text-color">
+              <span className="text-pink-500">AcademiaGuard:</span> <br />{" "}
+              Empowering the Future of Education
             </div>
             <div className="landing-text mb-4 text-sm font-normal md:text-base text-body-text-color">
               Welcome to AcademiaGuard, where the future of education meets
