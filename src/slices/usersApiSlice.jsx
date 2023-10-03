@@ -1,6 +1,7 @@
 import { apiSlice } from "./apiSlice";
 const LOGIN_URL = "/api/auth/login";
 const SIGNUP_URL = "/api/auth/signUp";
+const UPLOAD_PDF_URL = "/api/verridoc/upload-doc";
 
 export const usersApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
@@ -18,7 +19,15 @@ export const usersApiSlice = apiSlice.injectEndpoints({
         body: data,
       }),
     }),
+    upLoadPdf: builder.mutation({
+      query: (data) => ({
+        url: UPLOAD_PDF_URL,
+        method: "POST",
+        body: data,
+      }),
+    }),
   }),
 });
 
-export const { useLoginMutation, useSignupMutation } = usersApiSlice;
+export const { useLoginMutation, useSignupMutation, useUpLoadPdfMutation } =
+  usersApiSlice;

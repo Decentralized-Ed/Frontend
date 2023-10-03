@@ -4,7 +4,7 @@ const Certificates = () => {
   return (
     <>
       <body>
-        <div className="container pm-certificate-container">
+        <div className="container pm-certificate-container" id="Certificate">
           <div className="outer-border"></div>
           <div className="inner-border"></div>
 

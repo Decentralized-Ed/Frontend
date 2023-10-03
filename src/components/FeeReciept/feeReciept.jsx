@@ -1,7 +1,10 @@
 const FeeReciept = () => {
   return (
     <>
-      <div class="max-w-md mx-auto bg-white p-8 rounded shadow-md">
+      <div
+        class="max-w-md mx-auto bg-white p-8 rounded shadow-md"
+        id="feereciept"
+      >
         <div class="text-center mb-4">
           <h1 class="text-2xl font-semibold text-black">
             Student Fee Payment Receipt

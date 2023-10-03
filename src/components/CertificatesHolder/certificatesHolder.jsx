@@ -7,13 +7,7 @@ import feereciept from "../../feereciept.png";
 import degreeCertificate from "../../../src/degreeeCertificate.jpeg";
 import { useNavigate } from "react-router";
 const CertificatesHolder = () => {
-  //creating the pdf of the certificate using the html element.
-
-  // useEffect(() => {
-  //   const element = document.querySelector("#img1");
-  //   mergeImages([imge2, imge1]).then((b64) => (element.src = b64));
-  //   console.log(element);
-  // }, []);
+  const navigate = useNavigate();
 
   const createPdf = () => {
     const doc = new jsPDF({
@@ -28,8 +22,6 @@ const CertificatesHolder = () => {
       },
     });
   };
-
-  const navigate = useNavigate();
 
   return (
     <div className="mt-20">
