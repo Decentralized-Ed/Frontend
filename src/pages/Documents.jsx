@@ -6,6 +6,8 @@ import FeeReciept from "../components/FeeReciept/feeReciept";
 import Certificates from "../components/Certificates/certificate";
 import { useUpLoadPdfMutation } from "../slices/usersApiSlice";
 import { toast } from "react-toastify";
+import Gradesheet from "../components/Gradesheet/Gradesheet";
+import Transcript from "../components/transcript/transcript";
 
 const Documents = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -69,6 +71,8 @@ const Documents = () => {
       {certificateType === "IDcard" && <IDcard />}
       {certificateType === "Certificate" && <Certificates />}
       {certificateType === "feereciept" && <FeeReciept />}
+      {certificateType === "gradesheet" && <Gradesheet />}
+      {certificateType === "transcript" && <Transcript />}
       <button
         type="submit"
         onClick={createPdf}

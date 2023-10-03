@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/auth";
 import VerifyModal from "./VerifyModal";
 import { useEffect } from "react";
+import viewicon from "../../assets/eye.png";
+import hideicon from "../../assets/hide.png";
 import { useDispatch, useSelector } from "react-redux";
 import {
   useLoginMutation,
@@ -15,8 +17,17 @@ import Loader from "./Loader";
 const SignUpCard = () => {
   const { user, error, signUp } = useAuth();
   const [showOTPModal, setShowOTPModal] = useState(false);
+  const [passwordVisible, setPasswordVisible] = useState(false);
+  const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
+
   const navigate = useNavigate();
   const { userInfo } = useSelector((state) => state.auth);
+  const togglePasswordVisibility = () => {
+    setPasswordVisible(!passwordVisible);
+  };
+  const toggleConfirmPasswordVisibility = () => {
+    setConfirmPasswordVisible(!confirmPasswordVisible);
+  };
 
   useEffect(() => {
     if (userInfo) {
@@ -91,15 +102,29 @@ const SignUpCard = () => {
                 >
                   Enter Password
                 </label>
-                <input
-                  type="password"
-                  name="password"
-                  id="password"
-                  placeholder="Password"
-                  className="w-full bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  required
-                />
+                <div className="relative">
+                  <input
+                    type={passwordVisible ? "text" : "password"}
+                    name="password"
+                    id="password"
+                    placeholder="Password"
+                    className="w-full bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 pr-10" // Add pr-10 for padding-right
+                    required
+                  />
+                  <button
+                    type="button"
+                    className="absolute top-1/2 right-3 transform -translate-y-1/2"
+                    onClick={togglePasswordVisibility}
+                  >
+                    {passwordVisible ? (
+                      <img className="h-4 w-4" src={hideicon}></img>
+                    ) : (
+                      <img className="h-4 w-4" src={viewicon}></img>
+                    )}
+                  </button>
+                </div>
               </div>
+
               <div>
                 <label
                   htmlFor="confirmPassword"
@@ -107,14 +132,27 @@ const SignUpCard = () => {
                 >
                   Confirm Password
                 </label>
-                <input
-                  type="password"
-                  name="confirmPassword"
-                  id="confirmPassword"
-                  placeholder="Confirm Password"
-                  className="w-full bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  required
-                />
+                <div className="relative">
+                  <input
+                    type={confirmPasswordVisible ? "text" : "password"}
+                    name="password"
+                    id="password"
+                    placeholder="Confirm Password"
+                    className="w-full bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 pr-10" // Add pr-10 for padding-right
+                    required
+                  />
+                  <button
+                    type="button"
+                    className="absolute top-1/2 right-3 transform -translate-y-1/2"
+                    onClick={toggleConfirmPasswordVisibility}
+                  >
+                    {confirmPasswordVisible ? (
+                      <img className="h-4 w-4" src={hideicon}></img>
+                    ) : (
+                      <img className="h-4 w-4" src={viewicon}></img>
+                    )}
+                  </button>
+                </div>
               </div>
               {isLoading ? (
                 <Loader></Loader>

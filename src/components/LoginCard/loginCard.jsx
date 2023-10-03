@@ -2,6 +2,8 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/auth";
+import viewicon from "../../assets/eye.png";
+import hideicon from "../../assets/hide.png";
 import { useDispatch, useSelector } from "react-redux";
 import { useLoginMutation } from "../../slices/usersApiSlice";
 import { setCredentials } from "../../slices/authSlice";
@@ -11,6 +13,11 @@ import Loader from "../SignupCard/Loader";
 const LoginCard = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [passwordVisible, setPasswordVisible] = useState(false);
+
+    const togglePasswordVisibility = () => {
+      setPasswordVisible(!passwordVisible);
+    };
 
   const [login, { isLoading }] = useLoginMutation();
   const { userInfo } = useSelector((state) => state.auth);
@@ -71,14 +78,27 @@ const LoginCard = () => {
                 >
                   Enter Password
                 </label>
-                <input
-                  type="password"
-                  name="password"
-                  id="password"
-                  placeholder="Password"
-                  className="w-full bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  required
-                />
+                <div className="relative">
+                  <input
+                    type={passwordVisible ? "text" : "password"}
+                    name="password"
+                    id="password"
+                    placeholder="Password"
+                    className="w-full bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 pr-10" // Add pr-10 for padding-right
+                    required
+                  />
+                  <button
+                    type="button"
+                    className="absolute top-1/2 right-3 transform -translate-y-1/2"
+                    onClick={togglePasswordVisibility}
+                  >
+                    {passwordVisible ? (
+                      <img className="h-4 w-4" src={hideicon}></img>
+                    ) : (
+                      <img className="h-4 w-4" src={viewicon}></img>
+                    )}
+                  </button>
+                </div>
               </div>
               <div className="flex items-center justify-between">
                 <a
