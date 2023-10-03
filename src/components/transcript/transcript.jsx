@@ -45,24 +45,48 @@ const Transcript = () => {
             {/* <!-- Sample course rows (replace with actual data) --> */}
             <tr>
               <td class="border px-4 py-2">
-                <input type="text" placeholder="Subject" className="w-full" />
+                <input
+                  type="text"
+                  placeholder="Subject"
+                  className="w-full md:w-1/3"
+                />
               </td>
               <td class="border px-4 py-2">
-                <input type="text" placeholder="Credits" className="w-full" />
+                <input
+                  type="text"
+                  placeholder="Credits"
+                  className="w-full md:w-1/3"
+                />
               </td>
               <td class="border px-4 py-2">
-                <input type="text" placeholder="Grade" className="w-full" />
+                <input
+                  type="text"
+                  placeholder="Grade"
+                  className="w-full md:w-1/3"
+                />
               </td>
             </tr>
             <tr>
               <td class="border px-4 py-2">
-                <input type="text" placeholder="Subject" />
+                <input
+                  type="text"
+                  placeholder="Subject"
+                  className="w-full md:w-1/3"
+                />
               </td>
               <td class="border px-4 py-2">
-                <input type="text" placeholder="Credits" />
+                <input
+                  type="text"
+                  placeholder="Credits"
+                  className="w-full md:w-1/3"
+                />
               </td>
               <td class="border px-4 py-2">
-                <input type="text" placeholder="Grade" />
+                <input
+                  type="text"
+                  placeholder="Grade"
+                  className="w-full md:w-1/3"
+                />
               </td>
             </tr>
 
