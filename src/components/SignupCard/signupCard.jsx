@@ -46,6 +46,8 @@ const SignUpCard = () => {
     if (password !== confirmPassword) {
       // Check if passwords match
       toast.error("Passwords do not match!"); // Show an error toast
+      console.log(confirmPassword);
+      console.log(password);
       return; // Prevent form submission
     }
 
@@ -98,27 +100,27 @@ const SignUpCard = () => {
               <div>
                 <label
                   htmlFor="password"
-                    className="block mb-2 text-sm font-medium"
+                  className="block mb-2 text-sm font-medium"
+                >
+                  Enter Password
+                </label>
+                <div className="relative">
+                  <input
+                    type={passwordVisible ? "text" : "password"}
+                    name="password"
+                    id="password"
+                    placeholder="Password"
+                    className="w-full bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 pr-10" // Add pr-10 for padding-right
+                    required
+                  />
+                  <button
+                    type="button"
+                    className="absolute top-1/2 right-3 transform -translate-y-1/2"
+                    onClick={togglePasswordVisibility}
                   >
-                    Enter Password
-                  </label>
-                  <div className="relative">
-                    <input
-                      type={passwordVisible ? "text" : "password"}
-                      name="password"
-                      id="password"
-                      placeholder="Password"
-                      className="w-full bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 pr-10" // Add pr-10 for padding-right
-                      required
-                    />
-                    <button
-                      type="button"
-                      className="absolute top-1/2 right-3 transform -translate-y-1/2"
-                      onClick={togglePasswordVisibility}
-                    >
-                      {passwordVisible ? (
-                        <img className="h-4 w-4" src={hideicon}></img>
-                      ) : (
+                    {passwordVisible ? (
+                      <img className="h-4 w-4" src={hideicon}></img>
+                    ) : (
                       <img className="h-4 w-4" src={viewicon}></img>
                     )}
                   </button>
@@ -135,8 +137,8 @@ const SignUpCard = () => {
                 <div className="relative">
                   <input
                     type={confirmPasswordVisible ? "text" : "password"}
-                    name="password"
-                    id="password"
+                    name="confirmPassword"
+                    id="confirmPassword"
                     placeholder="Confirm Password"
                     className="w-full bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 pr-10" // Add pr-10 for padding-right
                     required

@@ -1,3 +1,5 @@
+import StudentPhoto from "../../StudentPhoto.webp";
+
 function IDcard() {
   return (
     <div className="w-full flex justify-center items-center text-black">
@@ -6,9 +8,9 @@ function IDcard() {
           <div className="w-full md:w-[40%] h-auto md:h-[100%] flex justify-center items-center">
             <div className="border-solid border-[#ff1689] border-[3px] w-[75%] h-[80%] md:h-[100%] rounded-lg overflow-hidden">
               <img
-                src="https://via.placeholder.com/150"
+                src={StudentPhoto}
                 alt="image of student"
-                className="w-full h-full object-cover"
+                className="w-48 h-48 object-fit"
               />
             </div>
           </div>
