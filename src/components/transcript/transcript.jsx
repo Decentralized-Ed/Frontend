@@ -1,12 +1,20 @@
+import { useState } from "react";
+
 const Transcript = () => {
+  const [buttonCheck, setButtonCheck] = useState(true);
+
+  document.addEventListener("input", function () {
+    const data = document.getElementsByClassName("buttonCheck");
+    setButtonCheck(Array.from(data).some((input) => !input.value));
+  });
   return (
     <>
-      <div class="max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-8 text-black mb-5">
-        <h1 class="text-2xl font-semibold mb-4">College Transcript</h1>
-        <div class="mb-4">
+      <div className="max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-8 text-black mb-5">
+        <h1 className="text-2xl font-semibold mb-4">College Transcript</h1>
+        <div className="mb-4">
           <label
             for="studentName"
-            class="block text-sm font-medium text-gray-700"
+            className="block text-sm font-medium text-gray-700"
           >
             Student Name:
           </label>
@@ -14,14 +22,14 @@ const Transcript = () => {
             type="text"
             id="studentName"
             name="studentName"
-            class="border rounded-md px-3 py-2 w-full"
+            className="border rounded-md px-3 py-2 w-full buttonCheck"
             placeholder="Name"
           />
         </div>
-        <div class="mb-4">
+        <div className="mb-4">
           <label
             for="studentID"
-            class="block text-sm font-medium text-gray-700"
+            className="block text-sm font-medium text-gray-700"
           >
             Student ID:
           </label>
@@ -29,86 +37,83 @@ const Transcript = () => {
             type="text"
             id="studentID"
             name="studentID"
-            class="border rounded-md px-3 py-2 w-full"
+            className="border rounded-md px-3 py-2 w-full buttonCheck"
             placeholder="ID"
           />
         </div>
-        <table class="min-w-full mb-4">
+        <table className="min-w-full mb-4">
           <thead>
             <tr>
-              <th class="text-left">Course</th>
-              <th class="text-left">Credit Hours</th>
-              <th class="text-left">Grade</th>
+              <th className="text-left">Course</th>
+              <th className="text-left">Credit Hours</th>
+              <th className="text-left">Grade</th>
             </tr>
           </thead>
           <tbody>
-            {/* <!-- Sample course rows (replace with actual data) --> */}
             <tr>
-              <td class="border px-4 py-2">
+              <td className="border px-4 py-2">
                 <input
                   type="text"
                   placeholder="Subject"
-                  className="w-full md:w-1/3"
+                  className="w-full md:w-1/3 buttonCheck"
                 />
               </td>
-              <td class="border px-4 py-2">
+              <td className="border px-4 py-2">
                 <input
                   type="text"
                   placeholder="Credits"
-                  className="w-full md:w-1/3"
+                  className="w-full md:w-1/3 buttonCheck"
                 />
               </td>
-              <td class="border px-4 py-2">
+              <td className="border px-4 py-2">
                 <input
                   type="text"
                   placeholder="Grade"
-                  className="w-full md:w-1/3"
+                  className="w-full md:w-1/3 buttonCheck"
                 />
               </td>
             </tr>
             <tr>
-              <td class="border px-4 py-2">
+              <td className="border px-4 py-2">
                 <input
                   type="text"
                   placeholder="Subject"
-                  className="w-full md:w-1/3"
+                  className="w-full md:w-1/3 buttonCheck"
                 />
               </td>
-              <td class="border px-4 py-2">
+              <td className="border px-4 py-2">
                 <input
                   type="text"
                   placeholder="Credits"
-                  className="w-full md:w-1/3"
+                  className="w-full md:w-1/3 buttonCheck"
                 />
               </td>
-              <td class="border px-4 py-2">
+              <td className="border px-4 py-2">
                 <input
                   type="text"
                   placeholder="Grade"
-                  className="w-full md:w-1/3"
+                  className="w-full md:w-1/3 buttonCheck"
                 />
               </td>
             </tr>
-
-            {/* <!-- Add more course rows as needed --> */}
           </tbody>
         </table>
-        <div class="mb-4">
-          <label for="gpa" class="block text-sm font-medium text-gray-700">
+        <div className="mb-4">
+          <label for="gpa" className="block text-sm font-medium text-gray-700">
             GPA:
           </label>
           <input
             type="text"
             id="gpa"
             name="gpa"
-            class="border rounded-md px-3 py-2 w-full"
+            className="border rounded-md px-3 py-2 w-full buttonCheck"
             placeholder="GPA"
           />
         </div>
-        <div class="mb-4">
+        <div className="mb-4">
           <label
             for="graduationDate"
-            class="block text-sm font-medium text-gray-700"
+            className="block text-sm font-medium text-gray-700"
           >
             Graduation Date:
           </label>
@@ -116,9 +121,18 @@ const Transcript = () => {
             type="date"
             id="date"
             name="date"
-            class="border rounded-md px-3 py-2 w-full text-black"
+            className="border rounded-md px-3 py-2 w-full text-black buttonCheck"
           />
         </div>
+      </div>
+      <div className="w-[100%] text-center">
+        <button
+          type="submit"
+          className="mt-4 text-white bg-pink-600 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 disabled:cursor-not-allowed"
+          disabled={buttonCheck}
+        >
+          Generate Document
+        </button>
       </div>
     </>
   );

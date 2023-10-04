@@ -1,16 +1,24 @@
+import { useState } from "react";
+
 const TransferCertificate = () => {
+  const [buttonCheck, setButtonCheck] = useState(true);
+
+  document.addEventListener("input", function () {
+    const data = document.getElementsByClassName("buttonCheck");
+    setButtonCheck(Array.from(data).some((input) => !input.value));
+  });
   return (
     <>
-      <div class="max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-8 text-black mt-5 md:w-[700px] sm:w-[100%]">
-        <h1 class="text-2xl font-semibold mb-4">
+      <div className="max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-8 text-black mt-5 md:w-[700px] sm:w-[100%]">
+        <h1 className="text-2xl font-semibold mb-4">
           College Transfer Certificate
         </h1>
 
         {/* <!-- College Name Input --> */}
-        <div class="mb-4">
+        <div className="mb-4">
           <label
             for="collegeName"
-            class="block text-sm font-medium text-gray-700"
+            className="block text-sm font-medium text-gray-700"
           >
             College Name:
           </label>
@@ -18,16 +26,16 @@ const TransferCertificate = () => {
             type="text"
             id="collegeName"
             name="collegeName"
-            class="border rounded-md px-3 py-2 w-full"
+            className="border rounded-md px-3 py-2 w-full buttonCheck"
             placeholder="Enter College Name"
           />
         </div>
 
         {/* <!-- Admission Number Input --> */}
-        <div class="mb-4">
+        <div className="mb-4">
           <label
             for="admissionNumber"
-            class="block text-sm font-medium text-gray-700"
+            className="block text-sm font-medium text-gray-700"
           >
             Admission Number:
           </label>
@@ -35,17 +43,17 @@ const TransferCertificate = () => {
             type="text"
             id="admissionNumber"
             name="admissionNumber"
-            class="border rounded-md px-3 py-2 w-full"
+            className="border rounded-md px-3 py-2 w-full buttonCheck"
             placeholder="Enter Admission Number"
           />
         </div>
 
         {/* <!-- Student Information Section --> */}
-        <h2 class="text-lg font-semibold mt-4 mb-2">Student Information</h2>
-        <div class="mb-4 flex justify-between items-center">
+        <h2 className="text-lg font-semibold mt-4 mb-2">Student Information</h2>
+        <div className="mb-4 flex justify-between items-center">
           <label
             for="studentName"
-            class="block text-sm font-medium text-gray-700"
+            className="block text-sm font-medium text-gray-700"
           >
             Pupil Name:
           </label>
@@ -53,14 +61,14 @@ const TransferCertificate = () => {
             type="text"
             id="studentName"
             name="studentName"
-            class="border rounded-md px-3 py-2 w-[70%]"
+            className="border rounded-md px-3 py-2 w-[70%] buttonCheck"
             placeholder="Enter Pupil Name"
           />
         </div>
-        <div class="mb-4 flex justify-between items-center">
+        <div className="mb-4 flex justify-between items-center">
           <label
             for="fatherName"
-            class="block text-sm font-medium text-gray-700"
+            className="block text-sm font-medium text-gray-700"
           >
             Father's Name:
           </label>
@@ -68,14 +76,14 @@ const TransferCertificate = () => {
             type="text"
             id="fatherName"
             name="fatherName"
-            class="border rounded-md px-3 py-2 w-[70%]"
+            className="border rounded-md px-3 py-2 w-[70%] buttonCheck"
             placeholder="Enter Father's Name"
           />
         </div>
-        <div class="mb-4 flex justify-between items-center">
+        <div className="mb-4 flex justify-between items-center">
           <label
             for="motherName"
-            class="block text-sm font-medium text-gray-700"
+            className="block text-sm font-medium text-gray-700"
           >
             Mother's Name:
           </label>
@@ -83,14 +91,14 @@ const TransferCertificate = () => {
             type="text"
             id="motherName"
             name="motherName"
-            class="border rounded-md px-3 py-2 w-[70%]"
+            className="border rounded-md px-3 py-2 w-[70%] buttonCheck"
             placeholder="Enter Mother's Name"
           />
         </div>
-        <div class="mb-4 flex justify-between items-center">
+        <div className="mb-4 flex justify-between items-center">
           <label
             for="nationality"
-            class="block text-sm font-medium text-gray-700"
+            className="block text-sm font-medium text-gray-700"
           >
             Nationality:
           </label>
@@ -98,37 +106,40 @@ const TransferCertificate = () => {
             type="text"
             id="nationality"
             name="nationality"
-            class="border rounded-md px-3 py-2 w-[70%]"
+            className="border rounded-md px-3 py-2 w-[70%] buttonCheck"
             placeholder="Enter Nationality"
           />
         </div>
-        <div class="mb-4 flex justify-between items-center">
-          <label for="caste" class="block text-sm font-medium text-gray-700">
+        <div className="mb-4 flex justify-between items-center">
+          <label
+            for="caste"
+            className="block text-sm font-medium text-gray-700"
+          >
             Caste:
           </label>
           <input
             type="text"
             id="caste"
             name="caste"
-            class="border rounded-md px-3 py-2 w-[70%]"
+            className="border rounded-md px-3 py-2 w-[70%] buttonCheck"
             placeholder="Enter Caste"
           />
         </div>
-        <div class="mb-4 flex justify-between items-center">
-          <label for="dob" class="block text-sm font-medium text-gray-700">
+        <div className="mb-4 flex justify-between items-center">
+          <label for="dob" className="block text-sm font-medium text-gray-700">
             Date of Birth:
           </label>
           <input
             type="date"
             id="dob"
             name="dob"
-            class="border rounded-md px-3 py-2 w-[70%]"
+            className="border rounded-md px-3 py-2 w-[70%] buttonCheck"
           />
         </div>
-        <div class="mb-4 flex justify-between items-center">
+        <div className="mb-4 flex justify-between items-center">
           <label
             for="subjectsStudied"
-            class="block text-sm font-medium text-gray-700"
+            className="block text-sm font-medium text-gray-700"
           >
             Subjects Studied:
           </label>
@@ -136,17 +147,17 @@ const TransferCertificate = () => {
             type="text"
             id="subjectsStudied"
             name="subjectsStudied"
-            class="border rounded-md px-3 py-2 w-[70%]"
+            className="border rounded-md px-3 py-2 w-[70%] buttonCheck"
             placeholder="Enter Subjects Studied"
           />
         </div>
 
         {/* <!-- Certificate Details Section --> */}
-        <h2 class="text-lg font-semibold mt-4 mb-2">Certificate Details</h2>
-        <div class="mb-4 flex justify-between items-center">
+        <h2 className="text-lg font-semibold mt-4 mb-2">Certificate Details</h2>
+        <div className="mb-4 flex justify-between items-center">
           <label
             for="qualified"
-            class="block text-sm font-medium text-gray-700"
+            className="block text-sm font-medium text-gray-700"
           >
             Whether Qualified:
           </label>
@@ -154,14 +165,14 @@ const TransferCertificate = () => {
             type="text"
             id="qualified"
             name="qualified"
-            class="border rounded-md px-3 py-2 w-[70%]"
+            className="border rounded-md px-3 py-2 w-[70%] buttonCheck"
             placeholder="Yes/No"
           />
         </div>
-        <div class="mb-4 flex justify-between items-center">
+        <div className="mb-4 flex justify-between items-center">
           <label
             for="daysPresent"
-            class="block text-sm font-medium text-gray-700"
+            className="block text-sm font-medium text-gray-700"
           >
             No. of Days Present:
           </label>
@@ -169,14 +180,14 @@ const TransferCertificate = () => {
             type="text"
             id="daysPresent"
             name="daysPresent"
-            class="border rounded-md px-3 py-2 w-[70%]"
+            className="border rounded-md px-3 py-2 w-[70%] buttonCheck"
             placeholder="Enter No. of Days Present"
           />
         </div>
-        <div class="mb-4 flex justify-between items-center">
+        <div className="mb-4 flex justify-between items-center">
           <label
             for="workingDays"
-            class="block text-sm font-medium text-gray-700"
+            className="block text-sm font-medium text-gray-700"
           >
             No. of Working Days:
           </label>
@@ -184,26 +195,29 @@ const TransferCertificate = () => {
             type="text"
             id="workingDays"
             name="workingDays"
-            class="border rounded-md px-3 py-2 w-[70%]"
+            className="border rounded-md px-3 py-2 w-[70%] buttonCheck"
             placeholder="Enter No. of Working Days"
           />
         </div>
-        <div class="mb-4">
-          <label for="conduct" class="block text-sm font-medium text-gray-700">
+        <div className="mb-4">
+          <label
+            for="conduct"
+            className="block text-sm font-medium text-gray-700"
+          >
             General Conduct:
           </label>
           <textarea
             id="conduct"
             name="conduct"
             rows="3"
-            class="border rounded-md px-3 py-2 w-full"
+            className="border rounded-md px-3 py-2 w-full buttonCheck"
             placeholder="Enter General Conduct"
           ></textarea>
         </div>
-        <div class="mb-4 flex justify-between items-center">
+        <div className="mb-4 flex justify-between items-center">
           <label
             for="applicationDate"
-            class="block text-sm font-medium text-gray-700"
+            className="block text-sm font-medium text-gray-700"
           >
             Date of Application:
           </label>
@@ -211,13 +225,13 @@ const TransferCertificate = () => {
             type="date"
             id="applicationDate"
             name="applicationDate"
-            class="border rounded-md px-3 py-2 w-[70%]"
+            className="border rounded-md px-3 py-2 w-[70%] buttonCheck"
           />
         </div>
-        <div class="mb-4 flex justify-between items-center">
+        <div className="mb-4 flex justify-between items-center">
           <label
             for="issueDate"
-            class="block text-sm font-medium text-gray-700"
+            className="block text-sm font-medium text-gray-700"
           >
             Date of Issue:
           </label>
@@ -225,21 +239,33 @@ const TransferCertificate = () => {
             type="date"
             id="issueDate"
             name="issueDate"
-            class="border rounded-md px-3 py-2 w-[70%]"
+            className="border rounded-md px-3 py-2 w-[70%] buttonCheck"
           />
         </div>
-        <div class="mb-4">
-          <label for="remarks" class="block text-sm font-medium text-gray-700">
+        <div className="mb-4">
+          <label
+            for="remarks"
+            className="block text-sm font-medium text-gray-700"
+          >
             Other Remarks:
           </label>
           <textarea
             id="remarks"
             name="remarks"
             rows="3"
-            class="border rounded-md px-3 py-2 w-full"
+            className="border rounded-md px-3 py-2 w-full buttonCheck"
             placeholder="Enter Other Remarks"
           ></textarea>
         </div>
+      </div>
+      <div className="w-[100%] text-center">
+        <button
+          type="submit"
+          className="mt-4 text-white bg-pink-600 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 disabled:cursor-not-allowed"
+          disabled={buttonCheck}
+        >
+          Generate Document
+        </button>
       </div>
     </>
   );

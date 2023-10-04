@@ -1,19 +1,26 @@
+import { useState } from "react";
 import "./certificate.css";
 
 const Certificates = () => {
+  const [buttonCheck, setButtonCheck] = useState(true);
+
+  document.addEventListener("input", function () {
+    const data = document.getElementsByClassName("buttonCheck");
+    setButtonCheck(Array.from(data).some((input) => !input.value));
+  });
   return (
     <>
-      <div className="container pm-certificate-container sm:w-[100%]">
+      <div className="container pm-certificate-container">
         <div className="outer-border"></div>
         <div className="inner-border"></div>
-
         <div className="pm-certificate-border col-xs-12">
           <div className="row pm-certificate-header">
             <div className="pm-certificate-title col-xs-12 text-center">
               {/* <h2>Buffalo Public Schools Certificate of Completion</h2> */}
               <input
                 type="text"
-                className="certiName"
+                name="Institute Name"
+                className="buttonCheck certiName"
                 placeholder="Institute Name"
                 value="IIITM Gwalior"
               />
@@ -30,7 +37,7 @@ const Certificates = () => {
                       <input
                         type="text"
                         placeholder="Student Name"
-                        className="text-center"
+                        className="buttonCheck text-center"
                       />
                     </span>
                   </div>
@@ -49,7 +56,7 @@ const Certificates = () => {
                       {/* PD175: 1.0 Credit Hours */}
                       <input
                         type="text"
-                        className="CGpoints bold sans"
+                        className="buttonCheck CGpoints bold sans"
                         placeholder="Grade Points"
                       />
                     </span>
@@ -79,7 +86,7 @@ const Certificates = () => {
                       {/* BPS PGS Initial PLO for Principals at Cluster Meetings */}
                       <input
                         type="text"
-                        className="CGpoints CourseName bold sans"
+                        className="CGpoints CourseName bold sans buttonCheck"
                         placeholder="Course Name"
                       />
                     </span>
@@ -108,6 +115,15 @@ const Certificates = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div className="w-[100%] text-center">
+        <button
+          type="submit"
+          className="mt-4 text-white bg-pink-600 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 disabled:cursor-not-allowed"
+          disabled={buttonCheck}
+        >
+          Generate Document
+        </button>
       </div>
     </>
   );
