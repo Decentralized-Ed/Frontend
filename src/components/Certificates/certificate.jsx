@@ -10,12 +10,13 @@ const Certificates = () => {
 
           <div className="pm-certificate-border col-xs-12">
             <div className="row pm-certificate-header">
-              <div className="pm-certificate-title cursive col-xs-12 text-center">
+              <div className="pm-certificate-title col-xs-12 text-center">
                 {/* <h2>Buffalo Public Schools Certificate of Completion</h2> */}
                 <input
                   type="text"
                   className="certiName"
                   placeholder="Institute Name"
+                  value="IIITM Gwalior"
                 />
               </div>
             </div>
@@ -27,7 +28,11 @@ const Certificates = () => {
                     <div className="col-xs-2"></div>
                     <div className="pm-certificate-name underline margin-0 col-xs-8 text-center">
                       <span className="pm-name-text bold">
-                        TrueNorth Administrator
+                        <input
+                          type="text"
+                          placeholder="Student Name"
+                          className="text-center"
+                        />
                       </span>
                     </div>
                     <div className="col-xs-2"></div>
@@ -90,13 +95,10 @@ const Certificates = () => {
                   <div className="pm-certificate-footer">
                     <div className="col-xs-4 pm-certified col-xs-4 text-center">
                       <span className="pm-credits-text block sans">
-                        Buffalo City School District
+                        ABV-IIITM
                       </span>
                       <span className="pm-empty-space block underline"></span>
-                      <span className="bold block">
-                        Crystal Benton Instructional Specialist II, Staff
-                        Development
-                      </span>
+                      <span className="bold block">Director of IIITM</span>
                     </div>
                     <div className="col-xs-4"></div>
                     <div className="col-xs-4 pm-certified col-xs-4 text-center">

@@ -7,6 +7,7 @@ import idCard from "../../../src/idCard.jpeg";
 import feereciept from "../../../src/feereciept.png";
 import Gradesheet from "../../../src/Gradesheet.png";
 import Transcript from "../../../src/Transcript.png";
+import TC from "../../../src/TC.png";
 
 const CertificatesHolder = () => {
   const createPdf = () => {
@@ -91,5 +92,10 @@ const documentData = [
     title: "Transcript",
     image: Transcript,
     type: "transcript",
+  },
+  {
+    title: "Transfer Certificate",
+    image: TC,
+    type: "transfercertificate",
   },
 ];

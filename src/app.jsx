@@ -8,6 +8,7 @@ import { Provider } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Documents from "./pages/Documents";
+import TransferCertificate from "./components/TransferCretificate/TC";
 
 function App() {
   return (

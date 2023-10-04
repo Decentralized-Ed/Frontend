@@ -5,6 +5,7 @@ import FeeReciept from "../components/FeeReciept/feeReciept";
 import Gradesheet from "../components/Gradesheet/Gradesheet";
 import Transcript from "../components/transcript/transcript";
 import DashBoardNavbar from "../components/DashboardNavbar/dashBoardNavbar";
+import TransferCertificate from "../components/TransferCretificate/TC";
 
 const Documents = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -20,6 +21,7 @@ const Documents = () => {
           {certificateType === "feereciept" && <FeeReciept />}
           {certificateType === "gradesheet" && <Gradesheet />}
           {certificateType === "transcript" && <Transcript />}
+          {certificateType === "transfercertificate" && <TransferCertificate />}
         </div>
         <button
           type="submit"
