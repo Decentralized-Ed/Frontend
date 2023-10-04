@@ -45,7 +45,7 @@ const DashBoardNavbar = () => {
           >
             <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border rounded-lg  md:flex-row md:space-x-8 md:mt-0 md:border-0">
               <li>
-                <a href="#" className="block" aria-current="page">
+                <a href="/dashboard" className="block" aria-current="page">
                   Home
                 </a>
               </li>
