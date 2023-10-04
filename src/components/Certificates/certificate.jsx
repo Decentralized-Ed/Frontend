@@ -13,7 +13,6 @@ const Certificates = () => {
       <div className="container pm-certificate-container">
         <div className="outer-border"></div>
         <div className="inner-border"></div>
-
         <div className="pm-certificate-border col-xs-12">
           <div className="row pm-certificate-header">
             <div className="pm-certificate-title col-xs-12 text-center">
