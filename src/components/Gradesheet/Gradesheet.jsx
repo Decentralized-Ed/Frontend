@@ -1,7 +1,10 @@
 const Gradesheet = () => {
   return (
     <>
-      <div class="max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-8 mb-5">
+      <div
+        class="max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-8 mb-5"
+        id="gradesheet"
+      >
         <h1 class="text-2xl font-semibold mb-4 text-black">
           College Grade Sheet
         </h1>

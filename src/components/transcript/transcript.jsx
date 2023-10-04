@@ -1,7 +1,10 @@
 const Transcript = () => {
   return (
     <>
-      <div class="max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-8 text-black mb-5">
+      <div
+        class="max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-8 text-black mb-5"
+        id="transcript"
+      >
         <h1 class="text-2xl font-semibold mb-4">College Transcript</h1>
         <div class="mb-4">
           <label
