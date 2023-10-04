@@ -3,6 +3,10 @@ import jsPDF from "jspdf";
 import { useNavigate } from "react-router";
 import document from "../../../src/document.jpg";
 import degreeCertificate from "../../../src/degreeeCertificate.jpeg";
+import idCard from "../../../src/idCard.jpeg";
+import feereciept from "../../../src/feereciept.png";
+import Gradesheet from "../../../src/Gradesheet.png";
+import Transcript from "../../../src/Transcript.png";
 
 const CertificatesHolder = () => {
   const createPdf = () => {
@@ -40,7 +44,7 @@ const CertificatesHolder = () => {
             </h1>
             <div className="flex flex-col items-center justify-center">
               <img
-                className="w-60 h-60 object-cover mb-4"
+                className="w-auto h-60 object-cover mb-4"
                 src={documentItem.image}
                 alt={documentItem.title}
               />
@@ -65,7 +69,7 @@ export default CertificatesHolder;
 const documentData = [
   {
     title: "ID Card",
-    image: document,
+    image: idCard,
     type: "IDcard",
   },
   {
@@ -75,17 +79,17 @@ const documentData = [
   },
   {
     title: "Fee Receipt",
-    image: document,
-    type: "feereceipt",
+    image: feereciept,
+    type: "feereciept",
   },
   {
     title: "Grade Sheet",
-    image: document,
+    image: Gradesheet,
     type: "gradesheet",
   },
   {
     title: "Transcript",
-    image: document,
+    image: Transcript,
     type: "transcript",
   },
 ];
