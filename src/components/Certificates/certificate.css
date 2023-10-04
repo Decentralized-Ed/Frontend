@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans|Pinyon+Script|Rochester");
 
 .cursive {
-  font-family: "Pinyon Script", cursive;
+  font-family: "Open Sans", sans-serif;
 }
 
 .sans {
@@ -142,7 +142,7 @@ body {
     .pm-earned {
       margin: 15px 0 20px;
       .pm-earned-text {
-        font-size: 20px;
+        font-size: 17px;
       }
       .pm-credits-text {
         font-size: 15px;
